@@ -51,6 +51,10 @@ export default {
       type: Boolean,
       default: false
     },
+    muteSoundProp: {
+        type: Boolean,
+        default: false
+    },
     messageListProp: Array,
     initOpenProp: Boolean
   },
@@ -95,10 +99,10 @@ export default {
     }
   },
   watch: {
-    messageListProp: function(newList, oldList) {
+    messageListProp: function(newList) {
       const nextMessage = newList[newList.length - 1]
       const isIncoming = (nextMessage || {}).author !== 'you'
-      if (isIncoming) {
+      if (isIncoming && !this.muteSoundProp) {
         this.playIncomingMessageSound()
       }
     }

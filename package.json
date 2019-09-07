@@ -3,9 +3,18 @@
   "version": "0.1.0",
   "private": false,
   "description": "_A Pen created at CodePen.io. Original URL: [https://codepen.io/manifoldkaizen/pen/oqzOKw](https://codepen.io/manifoldkaizen/pen/oqzOKw).",
-  "main": "index.js",
+  "main": "./dist/vue-chat-widget.common.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "*.json",
+    "*.js"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --target lib --name vue-chat-widget ./src/index.js",
+    "lint": "vue-cli-service lint"
   },
   "keywords": [
     "vuejs chat",
@@ -15,6 +24,10 @@
     "vue simple chat"
   ],
   "author": "david-j-davis <davidjamesdavis.djd@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Marmt-Group/app-vue-chat-widget"
+  },
   "license": "MIT",
   "dependencies": {
     "core-js": "^3.2.1",
