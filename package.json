@@ -2,7 +2,7 @@
   "name": "vue-chat-widget",
   "version": "0.1.0",
   "private": false,
-  "description": "_A Pen created at CodePen.io. Original URL: [https://codepen.io/manifoldkaizen/pen/oqzOKw](https://codepen.io/manifoldkaizen/pen/oqzOKw).",
+  "description": "A lean Vue.js chat ui that is backend agnostic",
   "main": "./dist/vue-chat-widget.common.js",
   "files": [
     "dist/*",
