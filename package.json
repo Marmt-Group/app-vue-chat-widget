@@ -1,0 +1,55 @@
+{
+  "name": "vue-chat-widget",
+  "version": "0.1.0",
+  "private": false,
+  "description": "_A Pen created at CodePen.io. Original URL: [https://codepen.io/manifoldkaizen/pen/oqzOKw](https://codepen.io/manifoldkaizen/pen/oqzOKw).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vuejs chat",
+    "vue chat widget",
+    "vue chat ui",
+    "vue chat socket",
+    "vue simple chat"
+  ],
+  "author": "david-j-davis <davidjamesdavis.djd@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "core-js": "^3.2.1",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.3",
+    "eslint-plugin-vue": "^5.2.3",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
