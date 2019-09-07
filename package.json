@@ -1,6 +1,6 @@
 {
   "name": "vue-chat-widget",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": false,
   "description": "A lean Vue.js chat ui that is backend agnostic",
   "main": "./dist/vue-chat-widget.common.js",

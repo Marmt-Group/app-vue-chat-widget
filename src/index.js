@@ -1,3 +1,3 @@
-import Launcher from './components/Launcher.vue'
+import Launcher from './Launcher.vue'
 
 export default Launcher

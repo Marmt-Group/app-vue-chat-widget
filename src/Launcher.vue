@@ -16,7 +16,7 @@
       <div class="chat-input">
         <form @submit.prevent="handleOutboundMessage()" class="chat-form">
           <input v-model="youMessage" type="text" placeholder="Type your message" autofocus>
-          <button class="submit" type="submit"><img class="submit-icon" :src="require('../assets/send-button.svg')" /></button>
+          <button class="submit" type="submit"><img class="submit-icon" :src="sendIcon" /></button>
         </form>
       </div>
     </div>
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import incomingMessageSound from './media/notification.mp3'
+import sendIcon from './img/send-button.svg'
 
 export default {
   inheritAttrs: false,
@@ -78,7 +80,7 @@ export default {
       })
     },
     playIncomingMessageSound() {
-      const audio = new Audio(require('../assets/notification.mp3'))
+      const audio = new Audio(incomingMessageSound)
       audio.play()
     },
     toggleChatOpen() {
