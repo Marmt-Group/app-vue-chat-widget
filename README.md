@@ -89,7 +89,7 @@ export default {
     messageList: function(newList) {
       const nextMessage = newList[newList.length - 1]
       const isIncoming = (nextMessage || {}).author !== 'you'
-      if (isIncoming) {
+      if (isIncoming && this.toggledOpen) {
         this.handleMessageResponseSound()
       }
     }
