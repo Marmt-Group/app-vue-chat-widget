@@ -127,7 +127,7 @@ export default {
     font-size: .8em;
   }
   .message-out {
-    color: white;
+    color: #ffffff;
     margin-left: 50%;
   }
   .message-in {
