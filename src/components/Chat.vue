@@ -25,9 +25,8 @@
 </template>
 
 <script>
-import incomingMessageSound from './../assets/notification.mp3'
-
 export default {
+  name: 'Chat',
   inheritAttrs: false,
   props: {
     iconColorProp: {
@@ -42,25 +41,12 @@ export default {
       type: String,
       default: '#f1f0f0'
     },
-    initialMessageProp: {
-      type: String,
-      default: ''
-    },
-    animationFade: {
-      type: Boolean,
-      default: false
-    },
-    muteSoundProp: {
-      type: Boolean,
-      default: false
-    },
     messageListProp: Array,
     initOpenProp: Boolean
   },
 
   data: () => {
     return {
-      themMessage: '',
       youMessage: '',
       isOpen: false
     }
@@ -77,10 +63,6 @@ export default {
         this.messageScroll()
       })
     },
-    playIncomingMessageSound() {
-      const audio = new Audio(incomingMessageSound)
-      audio.play()
-    },
     toggleChatOpen() {
       this.isOpen = !this.isOpen
       this.$emit('onToggleOpen', this.isOpen)
@@ -94,15 +76,6 @@ export default {
     this.isOpen = this.initOpenProp || false
     if (this.messageListProp) {
       this.messageScroll()
-    }
-  },
-  watch: {
-    messageListProp: function(newList) {
-      const nextMessage = newList[newList.length - 1]
-      const isIncoming = (nextMessage || {}).author !== 'you'
-      if (isIncoming && !this.muteSoundProp) {
-        this.playIncomingMessageSound()
-      }
     }
   }
 }

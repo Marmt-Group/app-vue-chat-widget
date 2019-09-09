@@ -27,20 +27,84 @@ $ npm install vue-chat-widget
 ## Example
 
 ``` javascript
+<template>
+    <div id="app">
+      <Chat
+        iconColorProp="#e6e6e6"
+        messageOutColorProp="#4d9e93"
+        messageInColorProp="#f1f0f0"
+        :messageListProp="messageList"
+        :initOpenProp="initOpen"
+        @onToggleOpen="handleToggleOpen"
+        @onMessageWasSent="handleMessageReceived"
+      />
+    </div>
+</template>
 
+<script>
+import {Chat} from 'vue-chat-widget'
+import incomingMessageSound from '../assets/notification.mp3' // pick an audio file for chat response
+
+export default {
+  name: "app",
+  components: {
+    Chat,
+  },
+  data: () => {
+    return {
+      messageList: [],
+      initOpen: false,
+      toggledOpen: false
+    }
+  },
+  methods: {
+    // Send message from you
+    handleMessageReceived(message) {
+      this.messageList.push(message)
+    },
+    // Receive message from them (handled by you with your backend)
+    handleMessageResponse(message) {
+       if (message.length > 0) {
+            this.messageList.push({ body: message, author: 'them' })
+        }
+    },
+    // Chat toggled open event emitted
+    handleToggleOpen(open) {
+      this.toggledOpen = open
+      // connect/disconnect websocket or something
+    },
+    // Audible chat response noise, use whatever noise you want
+    handleMessageResponseSound() {
+      const audio = new Audio(incomingMessageSound)
+      audio.addEventListener('loadeddata', () => {
+        audio.play()
+      })
+    },
+  },
+  // init chat with a message
+  mounted() {
+    this.messageList.push({ body: 'Welcome to the chat, I\'m David!', author: 'them' })
+  },
+  watch: {
+    messageList: function(newList) {
+      const nextMessage = newList[newList.length - 1]
+      const isIncoming = (nextMessage || {}).author !== 'you'
+      if (isIncoming) {
+        this.handleMessageResponseSound()
+      }
+    }
+  }
+}
+</script>
 ```
 
 ## Components
 
-## Launcher
+## Chat
 
-`Launcher` is the only component needed to use vue-chat-widget. It will react dynamically to changes in messages. All new messages must be added via a change in props as shown in the example.
+`Chat` is the only component needed to use vue-chat-widget. It will react dynamically to changes in messages. All new messages must be added via a change in props as shown in the example.
 
 Launcher props:
-
- iconColorProp="#e6e6e6"
-        messageOutColorProp="#4d9e93"
-        messageInColorProp="#f1f0f0"
 
 |      prop        | type   | required | description |
 |------------------|--------|----------|-------------|
@@ -49,7 +113,6 @@ Launcher props:
 | messageInColorProp | String | no | Set color of incoming messages. Defaults to `#f1f0f0` |
 | initOpenProp | Boolean | yes | Force the open/close state of the chat window on mount. |
 | messageListProp  | Array [[message](#message-objects)] | yes | An array of message objects to be rendered as a conversation. |
-| muteSoundProp | Boolean | no | Don't play sound for incoming messages. Defaults to `false`. |
 | @onToggleOpen    | event | yes | Event emitted when chat window is open and closed. |
 | @onMessageWasSent | function([message](#message-objects)) | yes | Emitted when a message is sent, with a message object as an argument. |
 
