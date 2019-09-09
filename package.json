@@ -14,7 +14,8 @@
     "lint": "vue-cli-service lint",
     "major": "npm version major --no-git-tag-version",
     "minor": "npm version minor --no-git-tag-version",
-    "patch": "npm version patch --no-git-tag-version"
+    "patch": "npm version patch --no-git-tag-version",
+    "publish": "npm publish --access public"
   },
   "keywords": [
     "vuejs chat",
