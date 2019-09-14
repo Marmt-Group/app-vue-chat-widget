@@ -8,7 +8,7 @@
       <div class="close-chat" @click="toggleChatOpen" :style="{background: iconColorProp}">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><g fill="none" stroke="#ffffff" stroke-width="10" stroke-miterlimit="10" stroke-linecap="round"><path d="M10 10l45 45M10 55l45-45"/></g></svg>
       </div>
-      <div ref="chatArea" class="chat-area">
+      <div ref="chatArea" class="chat-area" :style="{background: messageBackgroundColorProp}">
         <p v-for="message in messageListProp" :key="message.body" class="message" :style="[message.author === 'you' ? {background: messageOutColorProp} : {background: messageInColorProp}]" :class="{'message-out': message.author === 'you', 'message-in': message.author !== 'you' }">
           {{ message.body }}
         </p>
@@ -32,6 +32,10 @@ export default {
     iconColorProp: {
       type: String,
       default: '#e6e6e6'
+    },
+    messageBackgroundColorProp: {
+      type: String,
+      default: '#ffffff'
     },
     messageOutColorProp: {
       type: String,
@@ -113,7 +117,7 @@ export default {
     width: 100%;
   }
   .chat-area {
-    border-radius: 3px;
+    border-radius: 3px 3px 0 0;
     height: 300px;
     padding: 1em 1em 0;
     position: relative;
@@ -148,9 +152,11 @@ export default {
   .chat-form {
     background: #ffffff;
     border-top: 1px solid #e9e9e9;
+    border-radius: 0 0 3px 3px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    overflow: hidden;
     width: 100%;
   }
   .submit {

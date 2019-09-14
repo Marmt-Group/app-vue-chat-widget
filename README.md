@@ -17,6 +17,7 @@
 - [Installation](#installation)
 - [Example](#example)
 - [Components](#components)
+- [Backend Example with WebSockets](#backend)
 
 ## Installation
 
@@ -33,6 +34,7 @@ $ npm install vue-chat-widget
         iconColorProp="#e6e6e6"
         messageOutColorProp="#4d9e93"
         messageInColorProp="#f1f0f0"
+        messageBackgroundColorProp="#ffffff"
         :messageListProp="messageList"
         :initOpenProp="initOpen"
         @onToggleOpen="handleToggleOpen"
@@ -111,6 +113,7 @@ Launcher props:
 | iconColorProp     | String | no | Set icon color for close and open icons. Defaults to `#e6e6e6`|
 | messageOutColorProp | String | no | Set color of outgoing messages. Defaults to `#3d7e9a` |
 | messageInColorProp | String | no | Set color of incoming messages. Defaults to `#f1f0f0` |
+| messageBackgroundColorProp | String | no | Set background color of message area. Default to `#ffffff` |
 | initOpenProp | Boolean | yes | Force the open/close state of the chat window on mount. |
 | messageListProp  | Array [[message](#message-objects)] | yes | An array of message objects to be rendered as a conversation. |
 | @onToggleOpen    | event | yes | Event emitted when chat window is open and closed. |
@@ -133,3 +136,7 @@ Message objects are rendered differently depending on their type. Currently, onl
 }
 
 ```
+
+## Backend
+
+For an example frontend using vue-chat-widget and websockets, [look here](https://gist.github.com/david-j-davis/afcd4bcceaa7562f91604b945dd3f8b0). For an accompanying backend in Node.js for this, [look here](https://gist.github.com/david-j-davis/5f88958874a0acdf0a9bde30ddfc1a23).
