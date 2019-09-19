@@ -100,6 +100,10 @@ export default {
 </script>
 ```
 
+## Notification Sound
+
+Implement your own notification mp3 sound “🔔”, or [download this mp3 file](https://www.dropbox.com/s/fnnjo8cyxj8ovgf/notification.mp3?dl=1).
+
 ## Components
 
 ## Chat
