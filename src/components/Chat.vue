@@ -9,7 +9,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><g fill="none" stroke="#ffffff" stroke-width="10" stroke-miterlimit="10" stroke-linecap="round"><path d="M10 10l45 45M10 55l45-45"/></g></svg>
       </div>
       <div ref="chatArea" class="chat-area" :style="{background: messageBackgroundColorProp}">
-        <p v-for="message in messageListProp" :key="message.body" class="message" :style="[message.author === 'you' ? {background: messageOutColorProp} : {background: messageInColorProp}]" :class="{'message-out': message.author === 'you', 'message-in': message.author !== 'you' }">
+        <p v-for="message in messageListProp" :key="message.id||message.body" class="message" :style="[message.author === 'you' ? {background: messageOutColorProp} : {background: messageInColorProp}]" :class="{'message-out': message.author === 'you', 'message-in': message.author !== 'you' }">
           {{ message.body }}
         </p>
       </div>
