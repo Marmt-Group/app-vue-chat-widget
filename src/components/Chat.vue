@@ -15,7 +15,7 @@
       </div>
       <div class="chat-input">
         <form @submit.prevent="handleOutboundMessage()" class="chat-form">
-          <input v-model="youMessage" type="text" placeholder="Type your message" autofocus>
+          <input v-model="youMessage" type="text" :placeholder="messagePlaceholder" autofocus>
           <button class="submit" type="submit"><v-icon name="send" base-class="icon-send-message" :style="{color: iconColorProp, width: '30px'}"></v-icon></button>
         </form>
       </div>
@@ -29,6 +29,10 @@ export default {
   name: 'Chat',
   inheritAttrs: false,
   props: {
+    messagePlaceholder: {
+      type: String,
+      default: 'Type your message'
+    },
     iconColorProp: {
       type: String,
       default: '#e6e6e6'
